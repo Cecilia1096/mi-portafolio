@@ -1,14 +1,12 @@
 import React from 'react'
 import { ThemeProvider } from '@material-ui/core/styles'
 import themeconfig from './themeconfig/themeconfig'
-import Navbar from './components/Navbar'
-import List from './components/List'
+import Content from './components/Content'
 
 function App() {
   return (
     <ThemeProvider theme={themeconfig}>
-      <Navbar />
-      <List />
+      <Content />
     </ThemeProvider>
   )
 }

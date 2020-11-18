@@ -9,23 +9,34 @@ import {
 import MenuIcon from '@material-ui/icons/Menu'
 
 const useStyles = makeStyles((themeconfig) => ({
-  offset: themeconfig.mixins.toolbar
+  appBar: {
+    [themeconfig.breakpoints.up('sm')]: {
+      width: `calc(100% - ${240}px)`,
+      marginLeft: 240
+    },
+    menuButton: {
+      marginRight: themeconfig.spacing(2),
+      [themeconfig.breakpoints.up('sm')]: {
+        display: 'none'
+      }
+    }
+  }
 }))
 
-const Navbar = () => {
+const Navbar = (props) => {
   const classes = useStyles()
   return (
-    <div>
-      <AppBar>
-        <Toolbar>
-          <IconButton>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h5">Mi Portafolio</Typography>
-        </Toolbar>
-      </AppBar>
-      <div className={classes.offset}></div>
-    </div>
+    <AppBar className={classes.appBar}>
+      <Toolbar>
+        <IconButton
+          className={classes.menuButton}
+          onClick={() => props.actionOpen()}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h5">Mi Portafolio</Typography>
+      </Toolbar>
+    </AppBar>
   )
 }
 
