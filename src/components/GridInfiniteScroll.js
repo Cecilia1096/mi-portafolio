@@ -114,12 +114,4 @@ const GridInfiniteScroll = ({ ...rest }) => {
 
 export const GridWithShow = () => <GridInfiniteScroll show={78} />
 
-GridInfiniteScroll.story = {
-  name: 'Grid'
-}
-
-GridWithShow.story = {
-  name: 'Grid with show item 77'
-}
-
 export default GridInfiniteScroll

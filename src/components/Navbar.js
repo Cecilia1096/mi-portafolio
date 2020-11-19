@@ -4,7 +4,8 @@ import {
   Toolbar,
   Typography,
   makeStyles,
-  IconButton
+  IconButton,
+  Hidden
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 
@@ -28,13 +29,15 @@ const Navbar = (props) => {
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
-        <IconButton
-          className={classes.menuButton}
-          onClick={() => props.actionOpen()}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h5">Mi Portafolio</Typography>
+        <Hidden only={['md', 'xl', 'lg', 'sm']}>
+          <IconButton
+            className={classes.menuButton}
+            onClick={() => props.actionOpen()}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Hidden>
+        <Typography></Typography>
       </Toolbar>
     </AppBar>
   )
