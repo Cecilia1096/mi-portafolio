@@ -2,6 +2,7 @@ import React from 'react'
 import { makeStyles, Hidden } from '@material-ui/core'
 import Navbar from './Navbar'
 import Drawers from './Drawers'
+import Mansory from './GridInfiniteScroll'
 
 const styles = makeStyles((themeconfig) => ({
   root: {
@@ -10,8 +11,8 @@ const styles = makeStyles((themeconfig) => ({
   toolbar: themeconfig.mixins.toolbar,
   content: {
     flexGrow: 1,
-    backgroundColor: themeconfig.palette.background.default,
-    padding: themeconfig.spacing(3)
+
+    padding: themeconfig.spacing(10)
   }
 }))
 
@@ -34,6 +35,7 @@ const content = () => {
       </Hidden>
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
+        <Mansory />
       </div>
     </div>
   )
