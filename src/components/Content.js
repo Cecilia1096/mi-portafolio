@@ -3,6 +3,7 @@ import { makeStyles, Hidden } from '@material-ui/core'
 import Navbar from './Navbar'
 import Drawers from './Drawers'
 import Mansory from './GridInfiniteScroll'
+import ScrollTop from './ScrollTop'
 
 const styles = makeStyles((themeconfig) => ({
   root: {
@@ -11,7 +12,6 @@ const styles = makeStyles((themeconfig) => ({
   toolbar: themeconfig.mixins.toolbar,
   content: {
     flexGrow: 1,
-
     padding: themeconfig.spacing(10)
   }
 }))
@@ -36,6 +36,7 @@ const content = () => {
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
         <Mansory />
+        <ScrollTop />
       </div>
     </div>
   )
