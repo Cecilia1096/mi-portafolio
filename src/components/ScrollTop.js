@@ -10,10 +10,10 @@ const Scroll = ({ showBelow }) => {
       position: 'fixed',
       bottom: '2vh',
       backgroundColor: 'rgba(0, 0, 0, 0.08)',
-      color: '#d1c4e9;',
+      color: '#d1c4e9',
       '&:hover,&.Mui-focusVisible': {
         transition: '0.3s',
-        color: '#397ba6',
+        color: 'black',
         backgroundColor: 'rgba(0, 0, 0, 0.08)'
       },
       right: '2%'
@@ -23,13 +23,7 @@ const Scroll = ({ showBelow }) => {
   const classes = styles()
   const [show, setShow] = useState(showBelow !== 1)
 
-  const handleScroll = () => {
-    if (window.pageXOffset > showBelow) {
-      if (!show) setShow(true)
-    } else {
-      if (show) setShow(false)
-    }
-  }
+  const handleScroll = () => setShow(() => window.pageXOffset > showBelow)
 
   useEffect(() => {
     if (showBelow) {

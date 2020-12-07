@@ -6,6 +6,7 @@ import Mansory from './GridInfiniteScroll'
 import ScrollTop from './ScrollTop'
 
 const styles = makeStyles((themeconfig) => ({
+  type: 'dark',
   root: {
     display: 'flex'
   },

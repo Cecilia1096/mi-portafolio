@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 
-const useStyles = makeStyles((themeconfig) => ({
+const styles = makeStyles((themeconfig) => ({
   appBar: {
     [themeconfig.breakpoints.up('sm')]: {
       width: `calc(100% - ${240}px)`,
@@ -25,7 +25,7 @@ const useStyles = makeStyles((themeconfig) => ({
 }))
 
 const Navbar = (props) => {
-  const classes = useStyles()
+  const classes = styles()
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>
