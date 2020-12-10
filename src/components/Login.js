@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core'
 import './Login.css'
 
-const styles = makeStyles(() => ({
+const styles = makeStyles((themeconfig) => ({
   widthnew: {
     width: 300,
     display: 'flex',
@@ -15,7 +15,7 @@ const styles = makeStyles(() => ({
   widthbutton: {
     width: '300px',
     borderRadius: 20,
-    backgroundColor: '#0088fb',
+    backgroundColor: '#d1c4e9',
     margin: '-3px 0px 0px',
     height: '40px'
   }

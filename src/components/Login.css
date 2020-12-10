@@ -20,17 +20,6 @@ form.content-form {
   margin: 0 auto;
 }
 
-.logo {
-  display: flex;
-  justify-content: center;
-}
-
-img.imglogo {
-  position: absolute;
-  top: 3%;
-  left: 1%;
-  width: 10%;
-}
 .button-login {
   display: flex;
   justify-content: center;
@@ -38,23 +27,11 @@ img.imglogo {
 .forgot-password {
   display: flex;
   justify-content: center;
-  margin: 0px 0 26px;
+  margin: 24px 0 24px;
 }
 a {
-  color: #0088fb;
+  color: #9289a3;
   text-decoration: none;
-}
-.MuiFilledInput-underline:after {
-  border-bottom: 2px solid #0088fb !important;
-}
-.MuiButton-contained {
-  color: rgb(255, 255, 255) !important;
-}
-.MuiButton-contained:hover {
-  background-color: rgb(255, 103, 0) !important;
-}
-.MuiFormLabel-root.Mui-focused {
-  color: #0088fb !important;
 }
 
 .password-toogle-content {
