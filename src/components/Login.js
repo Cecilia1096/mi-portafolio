@@ -1,4 +1,8 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
+import UserContext from '../commons/context/UserContext'
+import { useHistory } from 'react-router-dom'
+import Axios from 'axios'
+import ErrorNotice from '../commons/errorNotice/ErrorNotice'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core'
@@ -24,18 +28,45 @@ const styles = makeStyles((themeconfig) => ({
 const Login = () => {
   const classes = styles()
 
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const [error, setError] = useState()
+
+  const { setUserData } = useContext(UserContext)
+  const history = useHistory()
+
+  const submit = async (e) => {
+    e.preventDefault()
+    try {
+      const loginUser = { email, password }
+      const loginRes = await Axios.post('http://localhost:5000/', loginUser)
+      setUserData({
+        token: loginRes.data.token,
+        user: loginRes.data.user
+      })
+      localStorage.setItem('auth-token', loginRes.data.token)
+      history.push('/dashboard')
+    } catch (err) {
+      err.response.data.msg && setError(err.response.data.msg)
+    }
+  }
+
   return (
     <div>
+      {error && (
+        <ErrorNotice message={error} clearError={() => setError(undefined)} />
+      )}
       <div className="bienvenido-content">
         <h1>¡Bienvenido!</h1>
       </div>
-      <form className="content-form">
+      <form className="content-form" onSubmit={submit}>
         <TextField
           className={classes.widthnew}
           id="filled-basic"
           label="Correo"
           type="email"
           variant="filled"
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
           className={classes.widthnew}
@@ -43,9 +74,10 @@ const Login = () => {
           label="Contraseña"
           autoComplete="current-password"
           variant="filled"
+          onChange={(e) => setPassword(e.target.value)}
         />
         <div className="forgot-password">
-          <a href="http://localhost:3000/forgot-password">
+          <a href="http://localhost:5000/forgot-password">
             ¿Olvidaste tu contraseña?
           </a>
         </div>
