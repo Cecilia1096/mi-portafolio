@@ -39,7 +39,10 @@ const Login = () => {
     e.preventDefault()
     try {
       const loginUser = { email, password }
-      const loginRes = await Axios.post('http://localhost:5000/', loginUser)
+      const loginRes = await Axios.post(
+        'https://me-portfolio-api.herokuapp.com/',
+        loginUser
+      )
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user
@@ -77,7 +80,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className="forgot-password">
-          <a href="http://localhost:5000/forgot-password">
+          <a href="https://me-portfolio-api.herokuapp.com/forgot-password">
             ¿Olvidaste tu contraseña?
           </a>
         </div>
