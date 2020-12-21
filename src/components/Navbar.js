@@ -26,6 +26,7 @@ const styles = makeStyles((themeconfig) => ({
 
 const Navbar = (props) => {
   const classes = styles()
+
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>

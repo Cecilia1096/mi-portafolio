@@ -26,7 +26,7 @@ const content = () => {
 
   return (
     <div className={classes.root}>
-      <Navbar actionOpen={actionOpen} />
+      <Navbar actionOpen={actionOpen}></Navbar>
       <Hidden xsDown>
         <Drawers variant="permanent" open={true} />
       </Hidden>
