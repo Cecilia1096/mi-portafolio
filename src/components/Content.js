@@ -2,7 +2,6 @@ import React from 'react'
 import { makeStyles, Hidden } from '@material-ui/core'
 import Navbar from './Navbar'
 import Drawers from './Drawers'
-import Mansory from './GridInfiniteScroll'
 import ScrollTop from './ScrollTop'
 
 const styles = makeStyles((themeconfig) => ({
@@ -36,7 +35,6 @@ const content = () => {
       </Hidden>
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
-        <Mansory />
         <ScrollTop />
       </div>
     </div>
