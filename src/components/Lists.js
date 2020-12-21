@@ -6,38 +6,35 @@ import {
   ListItemText,
   Divider
 } from '@material-ui/core'
-import LibraryAddOutlinedIcon from '@material-ui/icons/LibraryAddOutlined'
+import DashboardIcon from '@material-ui/icons/Dashboard'
+import PostAddIcon from '@material-ui/icons/PostAdd'
+import LabelIcon from '@material-ui/icons/Label'
+
 const Lists = () => {
   return (
     <div>
       <List component="nav">
         <ListItem button>
           <ListItemIcon>
-            <LibraryAddOutlinedIcon />
+            <DashboardIcon />
           </ListItemIcon>
-          <ListItemText primary="How to create a theme child with wordpress" />
+          <ListItemText primary="Dashboard" />
         </ListItem>
         <Divider />
         <ListItem button>
           <ListItemIcon>
-            <LibraryAddOutlinedIcon />
+            <PostAddIcon />
           </ListItemIcon>
-          <ListItemText primary="How to create a theme child with wordpress" />
+          <ListItemText primary="Post" />
         </ListItem>
         <Divider />
         <ListItem button>
           <ListItemIcon>
-            <LibraryAddOutlinedIcon />
+            <LabelIcon />
           </ListItemIcon>
-          <ListItemText primary="How to create a theme child with wordpress" />
+          <ListItemText primary="Tags" />
         </ListItem>
         <Divider />
-        <ListItem button>
-          <ListItemIcon>
-            <LibraryAddOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="How to create a theme child with wordpress" />
-        </ListItem>
       </List>
     </div>
   )
