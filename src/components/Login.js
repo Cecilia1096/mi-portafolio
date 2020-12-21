@@ -80,9 +80,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className="forgot-password">
-          <a href="https://me-portfolio-api.herokuapp.com/forgot-password">
-            ¿Olvidaste tu contraseña?
-          </a>
+          <a href="">¿Olvidaste tu contraseña?</a>
         </div>
         <div className="button-login">
           <Button
