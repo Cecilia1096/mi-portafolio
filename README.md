@@ -1,70 +1,227 @@
-# Getting Started with Create React App
+# Front
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## resources
 
-## Available Scripts
+- [standardjs](https://standardjs.com)
+- [Material-UI](https://material-ui.com)
+- [lint-staged](https://www.npmjs.com/package/lint-staged)
 
-In the project directory, you can run:
+## front
 
-### `npm start`
+- create React boilerplate
+  - [ ] `npx create-react-app your-project-name`
+- initialize eslint
+  - [ ] `cd your-project-name && npx eslint --init`
+    - **To check syntax, find problems, and enforce code style**
+    - **JavaScript modules (import/export)**
+    - **React**
+    - Does your project use TypeScript? **No**
+    - **Browser**
+    - Use a popular style guide: **Standard**
+    - **Javascript**
+    - Would you like to install them now with npm? **No**
+- [ ] install eslint dependencies
+  - with yarn: `yarn add -D eslint-plugin-react eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard`
+  - with npm: `npm i --save-dev eslint-plugin-react@latest eslint-config-standard@latest eslint-plugin-import@>=2.18.0 eslint-plugin-node@>=9.1.0 eslint-plugin-promise@>=4.2.1 eslint-plugin-standard@>=4.0.0`
+- [ ] install prettier
+  - with yarn: `yarn add -D prettier eslint-config-prettier`
+  - with npm: `npm i --save-dev prettier eslint-config-prettier`
+- configure prettier
+  - [ ] create **.prettierignore** file:
+    ```
+    node_modules/
+    .git/
+    build/
+    dist/
+    public/
+    ```
+  - [ ] create **.prettierrc.json** file:
+    ```json
+    {
+      "semi": false,
+      "singleQuote": true,
+      "trailingComma": "none"
+    }
+    ```
+- configure eslint
+  - [ ] create **.eslintignore** file:
+    ```
+    node_modules/
+    .git/
+    build/
+    dist/
+    public/
+    ```
+  - [ ] create **.eslintrc.js** file:
+    ```js
+    const RULES = {
+      OFF: 'off',
+      ERROR: 'error',
+      WARN: 'warn'
+    }
+    module.exports = {
+      env: {
+        browser: true,
+        es6: true
+      },
+      extends: ['plugin:react/recommended', 'standard', 'prettier'],
+      globals: {
+        Atomics: 'readonly',
+        SharedArrayBuffer: 'readonly'
+      },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true
+        },
+        ecmaVersion: 2018,
+        sourceType: 'module'
+      },
+      plugins: ['react'],
+      rules: {
+        'react/prop-types': RULES.OFF
+      },
+      settings: {
+        react: {
+          version: 'detect'
+        }
+      }
+    }
+    ```
+- [ ] install **lint-staged**: `npx mrm lint-staged`
+- [ ] create **jsconfig.json**
+  ```json
+  {
+    "compilerOptions": {
+      "baseUrl": "src"
+    }
+  }
+  ```
+  ## features
+  - **General**
+    - [ ] Add dark mode switch
+  - **Home**
+    - [ ] Display all blogs using an infinite scroll and a Masonry effect to provide a trendy layout to display each post as a card.
+    - [ ] Provide a button in the upper right or upper left corner to open a sidebar to display the most recent blogs and a section to apply a filter based on a tag
+    - [ ] Provide a button at the bottom right to return to the top of the page, this button should only be shown when the scroll is 100px from the top of the page
+  - **Blog**
+    - [ ] Display each blog using the an slug rather than the id
+    - [ ] Use Lazy and Suspense to display the blog content
+  - **Footer**
+    - [ ] Add a simple footer at the bottom, always it will displayed at the bottom no cares the page content
+  - **About**
+    - [ ] Add about page
+  - **404**
+    - [ ] Add a 404 page# Front
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## resources
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [standardjs](https://standardjs.com)
+- [Material-UI](https://material-ui.com)
+- [lint-staged](https://www.npmjs.com/package/lint-staged)
 
-### `npm test`
+## front
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- create React boilerplate
+  - [ ] `npx create-react-app your-project-name`
+- initialize eslint
+  - [ ] `cd your-project-name && npx eslint --init`
+    - **To check syntax, find problems, and enforce code style**
+    - **JavaScript modules (import/export)**
+    - **React**
+    - Does your project use TypeScript? **No**
+    - **Browser**
+    - Use a popular style guide: **Standard**
+    - **Javascript**
+    - Would you like to install them now with npm? **No**
+- [ ] install eslint dependencies
+  - with yarn: `yarn add -D eslint-plugin-react eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard`
+  - with npm: `npm i --save-dev eslint-plugin-react@latest eslint-config-standard@latest eslint-plugin-import@>=2.18.0 eslint-plugin-node@>=9.1.0 eslint-plugin-promise@>=4.2.1 eslint-plugin-standard@>=4.0.0`
+- [ ] install prettier
+  - with yarn: `yarn add -D prettier eslint-config-prettier`
+  - with npm: `npm i --save-dev prettier eslint-config-prettier`
+- configure prettier
+  - [ ] create **.prettierignore** file:
+    ```
+    node_modules/
+    .git/
+    build/
+    dist/
+    public/
+    ```
+  - [ ] create **.prettierrc.json** file:
+    ```json
+    {
+      "semi": false,
+      "singleQuote": true,
+      "trailingComma": "none"
+    }
+    ```
+- configure eslint
+  - [ ] create **.eslintignore** file:
+    ```
+    node_modules/
+    .git/
+    build/
+    dist/
+    public/
+    ```
+  - [ ] create **.eslintrc.js** file:
+    ```js
+    const RULES = {
+      OFF: 'off',
+      ERROR: 'error',
+      WARN: 'warn'
+    }
+    module.exports = {
+      env: {
+        browser: true,
+        es6: true
+      },
+      extends: ['plugin:react/recommended', 'standard', 'prettier'],
+      globals: {
+        Atomics: 'readonly',
+        SharedArrayBuffer: 'readonly'
+      },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true
+        },
+        ecmaVersion: 2018,
+        sourceType: 'module'
+      },
+      plugins: ['react'],
+      rules: {
+        'react/prop-types': RULES.OFF
+      },
+      settings: {
+        react: {
+          version: 'detect'
+        }
+      }
+    }
+    ```
+- [ ] install **lint-staged**: `npx mrm lint-staged`
+- [ ] create **jsconfig.json**
+  ```json
+  {
+    "compilerOptions": {
+      "baseUrl": "src"
+    }
+  }
+  ```
+  ## features
+  - **General**
+    - [ ] Add dark mode switch
+  - **Home**
+    - [ ] Display all blogs using an infinite scroll and a Masonry effect to provide a trendy layout to display each post as a card.
+    - [ ] Provide a button in the upper right or upper left corner to open a sidebar to display the most recent blogs and a section to apply a filter based on a tag
+    - [ ] Provide a button at the bottom right to return to the top of the page, this button should only be shown when the scroll is 100px from the top of the page
+  - **Blog**
+    - [ ] Display each blog using the an slug rather than the id
+    - [ ] Use Lazy and Suspense to display the blog content
+  - **Footer**
+    - [ ] Add a simple footer at the bottom, always it will displayed at the bottom no cares the page content
+  - **About**
+    - [ ] Add about page
+  - **404**
+    - [ ] Add a 404 page
