@@ -48,7 +48,7 @@ const Login = () => {
         user: loginRes.data.user
       })
       localStorage.setItem('auth-token', loginRes.data.token)
-      history.push('https://me-portfolio-api.herokuapp.com/dashboard')
+      history.push('/dashboard')
     } catch (err) {
       err.response.data.msg && setError(err.response.data.msg)
     }
