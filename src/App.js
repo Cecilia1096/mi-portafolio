@@ -44,7 +44,7 @@ function App() {
         <UserContext.Provider value={{ userData, setUserData }}>
           <Switch>
             <Route path="/api/login" exact component={Login} />
-            <Route path="/api/dashboard" exact component={Content} />
+            <Route path="/dashboard" exact component={Content} />
             <Content />
           </Switch>
         </UserContext.Provider>
