@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react'
-import UserContext from '../commons/context/UserContext'
+import UserContext from '../../commons/context/UserContext'
 import { useHistory } from 'react-router-dom'
 import Axios from 'axios'
-import ErrorNotice from '../commons/errorNotice/ErrorNotice'
+import ErrorNotice from '../../commons/errorNotice/ErrorNotice'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core'
@@ -40,7 +40,7 @@ const Login = () => {
     try {
       const loginUser = { email, password }
       const loginRes = await Axios.post(
-        'https://me-portfolio-api.herokuapp.com/login',
+        'http://localhost:5000/api/login',
         loginUser
       )
       setUserData({
@@ -75,6 +75,7 @@ const Login = () => {
           className={classes.widthnew}
           id="filled-password-input"
           label="Contraseña"
+          type="password"
           autoComplete="current-password"
           variant="filled"
           onChange={(e) => setPassword(e.target.value)}

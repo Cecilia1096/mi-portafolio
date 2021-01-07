@@ -3,9 +3,9 @@ import Axios from 'axios'
 import UserContext from './commons/context/UserContext'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/core/styles'
-import Content from './components/Content'
-import Login from './components/Login'
-import themeconfig from './themeconfig/themeconfig'
+import Content from './components/content/Content'
+import Login from './components/login/Login'
+import themeconfig from './commons/themeconfig/themeconfig'
 
 function App() {
   const [userData, setUserData] = useState({
@@ -21,17 +21,14 @@ function App() {
         token = ''
       }
       const tokenRes = await Axios.post(
-        'https://me-portfolio-api.herokuapp.com/tokenisvalid',
+        'http://localhost:5000/api/tokenisvalid',
         null,
         { headers: { 'x-auth-token': token } }
       )
       if (tokenRes.data) {
-        const userRes = await Axios.get(
-          'https://me-portfolio-api.herokuapp.com/dashboard',
-          {
-            headers: { 'x-auth-token': token }
-          }
-        )
+        const userRes = await Axios.get('http://localhost:5000/api/dashboard', {
+          headers: { 'x-auth-token': token }
+        })
         setUserData({
           token,
           user: userRes.data
@@ -46,7 +43,8 @@ function App() {
       <Router>
         <UserContext.Provider value={{ userData, setUserData }}>
           <Switch>
-            <Route path="/login" exact component={Login} />
+            <Route path="/api/login" exact component={Login} />
+            <Route path="/api/dashboard" exact component={Content} />
             <Content />
           </Switch>
         </UserContext.Provider>
