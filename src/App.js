@@ -26,12 +26,9 @@ function App() {
         { headers: { 'x-auth-token': token } }
       )
       if (tokenRes.data) {
-        const userRes = await Axios.get(
-          'https://me-portfolio-api.herokuapp.com/api/dashboard',
-          {
-            headers: { 'x-auth-token': token }
-          }
-        )
+        const userRes = await Axios.get('/dashboard', {
+          headers: { 'x-auth-token': token }
+        })
         setUserData({
           token,
           user: userRes.data
