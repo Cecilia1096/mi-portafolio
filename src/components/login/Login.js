@@ -40,7 +40,7 @@ const Login = () => {
     try {
       const loginUser = { email, password }
       const loginRes = await Axios.post(
-        'http://localhost:5000/api/login',
+        'https://me-portfolio-api.herokuapp.com/api/login',
         loginUser
       )
       setUserData({
@@ -48,7 +48,7 @@ const Login = () => {
         user: loginRes.data.user
       })
       localStorage.setItem('auth-token', loginRes.data.token)
-      history.push('/dashboard')
+      history.push('https://me-portfolio-api.herokuapp.com/dashboard')
     } catch (err) {
       err.response.data.msg && setError(err.response.data.msg)
     }

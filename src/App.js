@@ -21,14 +21,17 @@ function App() {
         token = ''
       }
       const tokenRes = await Axios.post(
-        'http://localhost:5000/api/tokenisvalid',
+        'https://me-portfolio-api.herokuapp.com/api/tokenisvalid',
         null,
         { headers: { 'x-auth-token': token } }
       )
       if (tokenRes.data) {
-        const userRes = await Axios.get('http://localhost:5000/api/dashboard', {
-          headers: { 'x-auth-token': token }
-        })
+        const userRes = await Axios.get(
+          'https://me-portfolio-api.herokuapp.com/api/dashboard',
+          {
+            headers: { 'x-auth-token': token }
+          }
+        )
         setUserData({
           token,
           user: userRes.data
