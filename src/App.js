@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import Axios from 'axios'
+import React, { useState } from 'react'
+// import Axios from 'axios'
 import UserContext from './commons/context/UserContext'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/core/styles'
@@ -13,38 +13,13 @@ function App() {
     user: undefined
   })
 
-  useEffect(() => {
-    const checkLoggeadIn = async () => {
-      let token = localStorage.getItem('auth-token')
-      if (token === null) {
-        localStorage.setItem('auth-token', '')
-        token = ''
-      }
-      const tokenRes = await Axios.post(
-        'https://me-portfolio-api.herokuapp.com/api/tokenisvalid',
-        null,
-        { headers: { 'x-auth-token': token } }
-      )
-      if (tokenRes.data) {
-        const userRes = await Axios.get('/dashboard', {
-          headers: { 'x-auth-token': token }
-        })
-        setUserData({
-          token,
-          user: userRes.data
-        })
-      }
-    }
-    checkLoggeadIn()
-  }, [])
-
   return (
     <ThemeProvider theme={themeconfig}>
       <Router>
         <UserContext.Provider value={{ userData, setUserData }}>
           <Switch>
             <Route path="/api/login" exact component={Login} />
-            <Route path="/dashboard" exact component={Content} />
+            <Route path="/api/dashboard" exact component={Content} />
             <Content />
           </Switch>
         </UserContext.Provider>
