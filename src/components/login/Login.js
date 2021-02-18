@@ -40,7 +40,7 @@ const Login = () => {
     try {
       const loginUser = { email, password }
       const loginRes = await Axios.post(
-        '',
+        'https://me-portfolio-api.herokuapp.com/api/login',
         loginUser
       )
       setUserData({
